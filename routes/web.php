@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\PayrollController;
+use App\Http\Controllers\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +19,10 @@ use App\Http\Controllers\CompanyController;
 Route::get('/', function () {
     return view('index');
 });
+
 Route::get('/companies', [CompanyController::class, 'index'])->name('companies');
 Route::get('/companies/{company}', [CompanyController::class, 'show'])->name('companies.show');
+Route::get('/payrolls/{company}', [PayrollController::class, 'create'])->name('payrolls.create');
+Route::post('/payrolls/{company}', [PayrollController::class, 'store'])->name('payrolls.store');
+
+Route::get('/employees/{employee}', [EmployeeController::class, 'show'])->name('employees.show');

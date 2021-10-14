@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Job;
 use App\Models\Company;
+use App\Models\Employee;
 use Illuminate\Database\Seeder;
 
 class CompanySeeder extends Seeder
@@ -14,9 +16,17 @@ class CompanySeeder extends Seeder
      */
     public function run()
     {
-        Company::factory()
-            ->count(10)
-            ->hasEmployees(10)
-            ->create();
+        for($i = 0; $i < 10; $i++) {
+            $company = Company::factory()->create();
+
+            for($j = 0; $j < 10; $j++) {
+                $employee = Employee::factory()->for($company)->create();
+                $job = Job::factory()->for($employee)->for($company)->create();
+            }
+        }
+            // Company::factory()
+            // ->count(10)
+            // ->hasEmployees(10)
+            // ->create();
     }
 }

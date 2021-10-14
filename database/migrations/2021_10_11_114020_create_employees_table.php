@@ -21,6 +21,12 @@ class CreateEmployeesTable extends Migration
             $table->foreignId('company_id')->constrained()->nullable();
             $table->string('email', 250)->nullable();
             $table->string('phone', 50)->nullable();
+            $table->dateTime('date_of_birth');
+            $table->string('ni_number');
+            $table->boolean('SL1');
+            $table->boolean('SL2');
+            $table->boolean('SL4');
+            $table->boolean('SLPG');
         });
     }
 

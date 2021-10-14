@@ -11,10 +11,17 @@
             <ul>
                 @foreach ($employees as $employee)
                     <li>
-                        <a href="">{{ $employee->first_name }} {{ $employee->last_name }}</a>
+                        <a href="{{ route('employees.show', $employee) }}">{{ $employee->first_name }} {{ $employee->last_name }}</a>
                     </li>
                 @endforeach
             </ul>
+        </div>
+        <div class="w-4/12 bg-white p-6 rounded-lg">
+            <a class="p-2 m-2 bg-blue-600 rounded-md" href="{{ route('payrolls.create', $company) }}">Run Payroll</a>
+            <h2 class="mt-2 font-bold">Previous Payrolls</h2>
+            @foreach ($payrolls as $payroll)
+                <a href="">{{ $payroll->tax_year }} - Month {{ $payroll->month }}</a>
+            @endforeach
         </div>
     </div>
 @endsection

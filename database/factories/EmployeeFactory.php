@@ -26,6 +26,12 @@ class EmployeeFactory extends Factory
             'last_name' => $this->faker->lastName(),
             'email' => $this->faker->email(),
             'phone' => $this->faker->phoneNumber(),
+            'date_of_birth' => $this->faker->dateTimeBetween('1930-01-01', '2002-01-01'),
+            'ni_number' => $this->faker->nino(),
+            'SL1' => $this->faker->boolean(),
+            'SL2' => $this->faker->boolean(),
+            'SL4' => $this->faker->boolean(),
+            'SLPG' => $this->faker->boolean(),
         ];
     }
 }
