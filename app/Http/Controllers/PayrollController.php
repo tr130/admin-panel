@@ -124,6 +124,6 @@ class PayrollController extends Controller
         }
         $payroll->save();
 
-        return back();
+        return redirect()->route('companies.show', $company);
     }
 }

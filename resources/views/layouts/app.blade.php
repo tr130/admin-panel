@@ -15,7 +15,7 @@
                 <a href="/" class="p-3">Home</a>
             </li>
             <li>
-                <a href="/" class="p-3">Companies</a>
+                <a href="{{ route('companies') }}" class="p-3">Companies</a>
             </li>
             <li>
                 <a href="/" class="p-3">Employees</a>

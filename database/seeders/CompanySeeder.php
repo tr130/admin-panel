@@ -22,6 +22,7 @@ class CompanySeeder extends Seeder
             for($j = 0; $j < 10; $j++) {
                 $employee = Employee::factory()->for($company)->create();
                 $job = Job::factory()->for($employee)->for($company)->create();
+                $job->createYears();
             }
         }
             // Company::factory()

@@ -14,4 +14,8 @@ class EmployeeController extends Controller
             'jobs' => $employee->jobs,
         ]);
     }
+
+    public function search(Request $request) {
+        dd($request);
+    }
 }
