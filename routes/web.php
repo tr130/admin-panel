@@ -30,7 +30,7 @@ Route::get('/payrolls/{company}', [PayrollController::class, 'create'])->name('p
 Route::post('/payrolls/{company}', [PayrollController::class, 'store'])->name('payrolls.store');
 
 Route::post('/jobs/{company}', [JobController::class, 'store'])->name('jobs.store');
-
+Route::post('/employees/store', [EmployeeController::class, 'store'])->name('employees.store');
 Route::get('/employees/show/{employee}', [EmployeeController::class, 'show'])->name('employees.show');
 Route::get('/employees/search', function(Request $request) {
     if($request->input()) {

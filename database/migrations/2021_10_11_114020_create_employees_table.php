@@ -18,15 +18,14 @@ class CreateEmployeesTable extends Migration
             $table->timestamps();
             $table->string('first_name', 100);
             $table->string('last_name', 100);
-            $table->foreignId('company_id')->constrained()->nullable();
             $table->string('email', 250)->nullable();
             $table->string('phone', 50)->nullable();
             $table->dateTime('date_of_birth');
             $table->string('ni_number');
-            $table->boolean('SL1');
-            $table->boolean('SL2');
-            $table->boolean('SL4');
-            $table->boolean('SLPG');
+            $table->boolean('SL1')->default(false);
+            $table->boolean('SL2')->default(false);
+            $table->boolean('SL4')->default(false);
+            $table->boolean('SLPG')->default(false);
         });
     }
 

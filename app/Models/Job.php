@@ -14,6 +14,17 @@ class Job extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'employee_id',
+        'start_date',
+        'end_date',
+        'annual_gross',
+        'contracted_hours',
+        'overtime_rate',
+        'pension',
+        'pension_optout_date',
+    ];
+
     public function company() {
         return $this->belongsTo(Company::class);
     }

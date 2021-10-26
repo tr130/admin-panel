@@ -22,7 +22,7 @@ class CompanyController extends Controller
     {
 
         //dd($company->employees());
-        $employees = $company->employees()->paginate();
+        $employees = $company->jobs()->with(['employee'])->paginate();
         $payrolls = $company->payrolls()->paginate();
         $allEmployees = Employee::all();
         return view('companies.show', [

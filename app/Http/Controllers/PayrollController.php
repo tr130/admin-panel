@@ -27,6 +27,8 @@ class PayrollController extends Controller
         });
 
         foreach($jobs as $job_id => $hours) {
+            //change to base on tax years
+            //check pension status
             $payslip = new Payslip;
             $payslip->payroll_id = $payroll->id;
             $payslip->job_id = $job_id;
