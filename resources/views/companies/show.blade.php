@@ -24,10 +24,10 @@
             </button>
         </div>
         <ul>
-            @foreach ($employees as $employee)
+            @foreach ($jobs as $job)
             <li>
-                <a href="{{ route('employees.show', $employee) }}">{{ $employee->first_name }}
-                    {{ $employee->last_name }}</a>
+                <a href="{{ route('employees.show', $job->employee) }}">{{ $job->employee->first_name }}
+                    {{ $job->employee->last_name }}</a>
             </li>
             @endforeach
         </ul>
@@ -42,7 +42,7 @@
         @endforeach
     </div>
 </div>
-<div class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="add_emp_modal">
+<div class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden" id="add_emp_modal">
     <div class="relative top-20 mx-auto p-5 border w-4/5 shadow-lg rounded-md bg-white">
         <div class="mt-3">
             <h3 class="text-lg leading-6 font-medium text-gray-900">Add new position</h3>

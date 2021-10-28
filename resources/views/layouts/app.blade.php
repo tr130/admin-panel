@@ -18,7 +18,7 @@
                 <a href="{{ route('companies') }}" class="p-3">Companies</a>
             </li>
             <li>
-                <a href="/" class="p-3">Employees</a>
+                <a href="{{ route('employees') }}" class="p-3">Employees</a>
             </li>
         </ul>
         <ul class="flex items-center">
@@ -37,9 +37,6 @@
             @guest
                 <li>
                     <a href="" class="p-3">Login</a>
-                </li>
-                <li>
-                    <a href="" class="p-3">Register</a>
                 </li>
             @endguest
         </ul>

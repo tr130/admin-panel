@@ -5,7 +5,6 @@ namespace App\Models;
 use Carbon\Carbon;
 use App\Models\Company;
 use App\Models\JobYear;
-use App\Models\Payslip;
 use App\Models\Employee;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -27,10 +26,6 @@ class Job extends Model
 
     public function company() {
         return $this->belongsTo(Company::class);
-    }
-
-    public function payslips() {
-        return $this->hasMany(Payslip::class);
     }
 
     public function employee() {

@@ -7,6 +7,17 @@ use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
+
+    public function index()
+    {
+        $employees = Employee::orderBy('last_name')->paginate(10);
+
+        return view('employees.index', [
+            'employees' => $employees,
+        ]);
+    }
+
+
     public function show(Employee $employee)
     {
         return view('employees.show', [

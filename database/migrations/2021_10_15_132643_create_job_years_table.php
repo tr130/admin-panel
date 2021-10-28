@@ -19,9 +19,10 @@ class CreateJobYearsTable extends Migration
             $table->foreignId('job_id')->constrained();
             $table->year('tax_year');
             $table->integer('tax_code')->default(1257);
-            $table->char('ni_category')->default('A');
+            $table->char('ni_category', 1)->default('A');
             $table->decimal('gross_pay_to_date', 9, 2)->default(0.00);
             $table->decimal('tax_paid_to_date', 9, 2)->default(0.00);
+            $table->decimal('nic_to_date', 9, 2)->default(0.00);
         });
     }
 

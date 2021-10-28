@@ -1,3 +1,148 @@
+.payslip {
+  width: 1000px;
+}
+.payslip_header {
+  display: flex;
+  margin: 0.5rem;
+}
+.payslip_header_employer {
+  flex-grow: 2;
+  border: 1px #4bd3a1 solid;
+  border-radius: 0.75rem;
+  margin-right: 1rem;
+  background-image: linear-gradient(to right, #4bd3a1 150px, #d8f1ee 150px);
+}
+.payslip_header_employer_employer {
+  display: inline-block;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  width: 150px;
+  font-weight: 700;
+  height: 100%;
+  padding: 0.5rem;
+}
+.payslip_header_employer_name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  padding-left: 1rem;
+}
+.payslip_header_payadvice {
+  flex-grow: 1;
+  border-radius: 0.75rem;
+  background-color: #4bd3a1;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  padding: 0.5rem;
+  margin-left: 1rem;
+}
+.payslip_breakdown {
+  border-radius: 0.75rem;
+  border: 1px #4bd3a1 solid;
+  display: flex;
+  background-image: linear-gradient(#d8f1ee 2rem, #4bd3a1 0 3.5rem, white 0 5rem);
+  margin: 0.5rem;
+}
+.payslip_breakdown_block {
+  flex-grow: 1;
+  border-right: 1px #4bd3a1 solid;
+}
+.payslip_breakdown_block:last-child {
+  border-right: none;
+}
+.payslip_breakdown_block .breakdown_header {
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+  height: 2rem;
+  font-size: 1.2rem;
+}
+.payslip_breakdown_block .breakdown_table {
+  display: flex;
+}
+.payslip_breakdown_block .breakdown_table_column {
+  flex-grow: 1;
+}
+.payslip_breakdown_block .breakdown_table_column_header {
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  border-right: 1px white solid;
+  height: 1.5rem;
+}
+.payslip_breakdown_block .breakdown_table_column:last-child .breakdown_table_column_header {
+  border-right: none;
+}
+.payslip_breakdown_block .breakdown_table_column:nth-of-type(odd) .breakdown_table_column_content {
+  background-color: #d8f1ee;
+}
+.payslip_breakdown_block .breakdown_table_column:nth-of-type(even) .breakdown_table_column_content {
+  text-align: right;
+  font-family: monospace;
+}
+.payslip_breakdown_block .breakdown_table_column_content {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  height: 15rem;
+}
+.payslip_breakdown_block .breakdown_table_column_content .total {
+  font-weight: 700;
+}
+.payslip_footer {
+  margin: 0.5rem;
+  display: flex;
+}
+.payslip_footer_info {
+  height: 4.5rem;
+  background-image: linear-gradient(#4bd3a1 1.5rem, #d8f1ee 1.5rem);
+  border: 1px #4bd3a1 solid;
+  border-radius: 0.75rem;
+  display: flex;
+  flex-grow: 10;
+  margin-right: 0.5rem;
+}
+.payslip_footer_info .info_column {
+  flex-grow: 1;
+  -o-border-image: linear-gradient(white 1.5rem, #4bd3a1 1.5rem) 1;
+     border-image: linear-gradient(white 1.5rem, #4bd3a1 1.5rem) 1;
+  border-image-width: 0 1px 0 0;
+}
+.payslip_footer_info .info_column:last-child {
+  border-right: none;
+  border-image-width: 0;
+  flex-grow: 3;
+}
+.payslip_footer_info .info_column_header {
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+}
+.payslip_footer_info .info_column_content {
+  padding: 0.5rem;
+  text-align: center;
+}
+.payslip_footer_net {
+  height: 4.5rem;
+  background-image: linear-gradient(#4bd3a1 1.5rem, white 1.5rem);
+  border: 3px #4bd3a1 solid;
+  border-radius: 0.75rem;
+  flex-grow: 1;
+}
+.payslip_footer_net .info_column_header {
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+}
+.payslip_footer_net .info_column_content {
+  padding: 0.5rem;
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
 /*! tailwindcss v2.2.16 | MIT License | https://tailwindcss.com */
 
 /*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */

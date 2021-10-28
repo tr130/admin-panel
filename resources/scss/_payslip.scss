@@ -1,0 +1,198 @@
+$dark-green: #4bd3a1;
+$light-green: #d8f1ee;
+
+.payslip {
+    width: 1000px;
+
+    &_header {
+        display:flex;
+        margin: 0.5rem;
+
+        &_employer {
+            flex-grow: 2;
+            border: 1px $dark-green solid;
+            border-radius: .75rem;
+            margin-right: 1rem;
+            background-image: linear-gradient(
+                to right,
+                $dark-green 150px,
+                $light-green 150px,
+            );
+
+            &_employer {
+                display: inline-block;
+                color: white;
+                text-transform: uppercase;
+                text-align: center;
+                width: 150px;
+                font-weight: 700;
+                height: 100%;
+                padding: 0.5rem;
+            }
+
+            &_name {
+                font-size: 1.5rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                padding: 0.5rem;
+                padding-left: 1rem;
+            }
+        }
+
+        &_payadvice {
+            flex-grow: 1;
+            border-radius: .75rem;
+            background-color: $dark-green;
+            text-transform: uppercase;
+            text-align: center;
+            color: white;
+            font-weight: 700;
+            padding: 0.5rem;
+            margin-left: 1rem;
+        }
+    }
+
+    &_breakdown {
+        border-radius: .75rem;
+        border: 1px $dark-green solid;
+        display: flex;
+        background-image: linear-gradient(
+            $light-green 2rem,
+            $dark-green 0 3.5rem,
+            white 0 5rem
+        );
+        margin: 0.5rem;
+
+        &_block {
+            flex-grow: 1;
+            border-right: 1px $dark-green solid;
+
+            &:last-child {
+                border-right: none;
+            }
+
+            .breakdown_header {
+                font-weight: 700;
+                text-align: center;
+                width: 100%;
+                height: 2rem;
+                font-size: 1.2rem;
+            }
+
+            .breakdown_table {
+                display: flex;
+
+                &_column {
+                    flex-grow: 1;
+
+                    &_header {
+                        color: white;
+                        text-transform: uppercase;
+                        text-align: center;
+                        border-right: 1px white solid;
+                        height: 1.5rem;
+                    }
+
+                    &:last-child {
+                        .breakdown_table_column_header {
+                            border-right: none;
+                        }
+                    }
+
+                    &:nth-of-type(odd) {
+                        .breakdown_table_column_content {
+                            background-color: $light-green;
+                        }
+                    }
+
+                    &:nth-of-type(even) {
+                        .breakdown_table_column_content {
+                            text-align: right;
+                            font-family: monospace;
+                        }
+                    }
+
+                    &_content {
+                        padding: 0.5rem;
+                        font-size: 0.9rem;
+                        height: 15rem;
+
+                        .total {
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &_footer {
+        margin: 0.5rem;
+        display: flex;
+
+        &_info {
+            height: 4.5rem;
+            background-image: linear-gradient(
+                $dark-green 1.5rem,
+                $light-green 1.5rem
+            );
+            border: 1px $dark-green solid;
+            border-radius: .75rem;
+            display:flex;
+            flex-grow: 10;
+            margin-right: 0.5rem;
+
+            .info_column {
+                flex-grow: 1;
+                border-image: linear-gradient(
+                    white 1.5rem,
+                    $dark-green 1.5rem
+                ) 1;
+                border-image-width: 0 1px 0 0;
+
+                &:last-child {
+                    border-right: none;
+                    border-image-width: 0;
+                    flex-grow: 3;
+                }
+
+                &_header {
+                    text-transform: uppercase;
+                    color: white;
+                    text-align: center;
+                }
+
+                &_content {
+                    padding: 0.5rem;
+                    text-align: center;
+                }
+            }
+        }
+
+        &_net {
+            height: 4.5rem;
+            background-image: linear-gradient(
+                $dark-green 1.5rem,
+                white 1.5rem
+            );
+            border: 3px $dark-green solid;
+            border-radius: .75rem;
+            flex-grow: 1;
+
+            .info_column {
+                &_header {
+                    text-transform: uppercase;
+                    color: white;
+                    text-align: center;
+                }
+
+                &_content {
+                    padding: 0.5rem;
+                    text-align: right;
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}

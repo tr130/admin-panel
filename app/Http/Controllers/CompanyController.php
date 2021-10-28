@@ -10,7 +10,6 @@ class CompanyController extends Controller
 {
     public function index()
     {
-        //$companies = Company::select('name')->get();
         $companies = Company::all();
 
         return view('companies.index', [
@@ -21,15 +20,12 @@ class CompanyController extends Controller
     public function show(Company $company)
     {
 
-        //dd($company->employees());
-        $employees = $company->jobs()->with(['employee'])->paginate();
+        $jobs = $company->jobs()->with(['employee'])->paginate();
         $payrolls = $company->payrolls()->paginate();
-        $allEmployees = Employee::all();
         return view('companies.show', [
             'company' => $company,
-            'employees' => $employees,
+            'jobs' => $jobs,
             'payrolls' => $payrolls,
-            'all_employees' => $allEmployees,
         ]);
     }
 }
