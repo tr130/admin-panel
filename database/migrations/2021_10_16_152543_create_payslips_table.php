@@ -18,6 +18,7 @@ class CreatePayslipsTable extends Migration
             $table->timestamps();
             $table->foreignId('job_year_id')->constrained();
             $table->foreignId('payroll_id')->constrained()->onDelete('cascade');
+            $table->integer('month');
             $table->decimal('hours_worked', 6, 2);
             $table->decimal('gross_pay', 7, 2);
             $table->decimal('pension_payment', 7, 2)->default(0.0);

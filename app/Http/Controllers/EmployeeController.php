@@ -22,7 +22,7 @@ class EmployeeController extends Controller
     {
         return view('employees.show', [
             'employee' => $employee,
-            'jobs' => $employee->jobs,
+            'jobs' => $employee->jobs()->with(['jobYears.payslips'])->paginate(),
         ]);
     }
 

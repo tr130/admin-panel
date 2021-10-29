@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="/css/app.css" rel="stylesheet">
-    <title>Document</title>
+    <title>Admin Panel | Business Management and PAYE System</title>
 </head>
 <body class="bg-gray-500">
 <header>
@@ -36,7 +36,7 @@
 
             @guest
                 <li>
-                    <a href="" class="p-3">Login</a>
+                    <a href="{{ route('login') }}" class="p-3">Login</a>
                 </li>
             @endguest
         </ul>

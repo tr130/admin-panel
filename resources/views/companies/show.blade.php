@@ -12,9 +12,10 @@
             </ul>
         </div>
     @endif
-        <h2>{{ $company->name }} <a href="{{ $company->website }}">(link)</a></h2>
+    <img src="{{ asset('storage/' . $company->id . '.png') }}" alt="logo" width="100" height="100" class="border-2">
+        <h2>{{ $company->name }}</h2>
+        <p>Website: <a href="{{ $company->website }}">{{ $company->website }}</a></h2></p>
         <h3>Contact email: <a href="mailto:{{ $company->email }}">{{ $company->email }}</a></h3>
-        <img src="{{ $company->logo }}" alt="logo" width="100" height="100" class="border-2">
         <hr>
         <h3>Employees</h3>
         <div class="mx-auto">
@@ -36,10 +37,6 @@
         <a class="bg-blue-500 text-white rounded-md p-2 text-base font-medium hover:bg-blue-600
             focus:outline-none focus:ring-2 focus:ring-blue-300" href="{{ route('payrolls.create', $company) }}">Run
             Payroll</a>
-        <h2 class="mt-2 font-bold">Previous Payrolls</h2>
-        @foreach ($payrolls as $payroll)
-        <a href="">{{ $payroll->tax_year }} - Month {{ $payroll->month }}</a>
-        @endforeach
     </div>
 </div>
 <div class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden" id="add_emp_modal">

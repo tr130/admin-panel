@@ -22,6 +22,13 @@ class PayrollController extends Controller
 
     public function store(Company $company, Request $request)
     {
+        $request->validate([
+            'tax_year' => 'numeric|required',
+            'month' => 'numeric|required'
+        ]);
+        if ($company->payrolls()->where('tax_year', $request['tax_year'])->where('month', $request['month'])->first()) {
+            return redirect()->route('payrolls.create', $company)->with('fail', 'Payroll has already been run for this month.');
+        }
         $payroll = $company->payrolls()->create($request->only('tax_year', 'month'));
         $calendarMonth = (3 + $payroll->month) % 12;
         $calendarYear = $payroll->tax_year;
@@ -42,6 +49,7 @@ class PayrollController extends Controller
                 $jobYear = $job->jobYears()->where('tax_year', $payroll->tax_year)->FirstOrFail();
                 $payslip = new Payslip;
                 $payslip->payroll_id = $payroll->id;
+                $payslip->month = $payslip->payroll->month;
                 $payslip->job_year_id = $jobYear->id;
                 $payslip->hours_worked = $hours;
                 $hourly_rate = $job->annual_gross / (12 * $job->contracted_hours);

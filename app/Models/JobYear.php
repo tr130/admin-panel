@@ -18,6 +18,6 @@ class JobYear extends Model
 
     public function payslips()
     {
-        return $this->hasMany(Payslip::class);
+        return $this->hasMany(Payslip::class)->orderBy('month');
     }
 }

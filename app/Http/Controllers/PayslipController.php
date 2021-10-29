@@ -12,7 +12,8 @@ class PayslipController extends Controller
         dd('store');
     }
 
-    public function show(Payslip $payslip) {
+    public function show(Request $request) {
+        $payslip = Payslip::findOrFail($request['id']);
         return view('payslips.show', [
             'payslip' => $payslip,
         ]);
