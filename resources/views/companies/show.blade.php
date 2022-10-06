@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="flex justify-center">
     <div class="w-8/12 bg-white p-6 rounded-lg">
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -178,7 +177,6 @@
 
         </div>
     </div>
-</div>
 <!--modal content-->
 <script>
     const empType = function (radio) {
