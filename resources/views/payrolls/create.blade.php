@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex justify-center">
-        <div class="w-8/12 bg-white p-6 rounded-lg">
+        <div class="w-full bg-white p-6">
             <h2>Run payroll for <a href="{{ route('companies.show', $company) }}">{{ $company->name }}</a></h2>
             <hr>
             @if (Session::has('fail'))
@@ -52,5 +51,4 @@
                 </form>
 
         </div>
-    </div>
 @endsection

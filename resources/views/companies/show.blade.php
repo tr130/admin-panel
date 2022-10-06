@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="w-8/12 bg-white p-6 rounded-lg">
+    <div class="w-8/12 bg-white p-6">
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -32,7 +32,7 @@
             @endforeach
         </ul>
     </div>
-    <div class="w-4/12 bg-white p-6 rounded-lg">
+    <div class="w-4/12 bg-white p-6">
         <a class="bg-blue-500 text-white rounded-md p-2 text-base font-medium hover:bg-blue-600
             focus:outline-none focus:ring-2 focus:ring-blue-300" href="{{ route('payrolls.create', $company) }}">Run
             Payroll</a>

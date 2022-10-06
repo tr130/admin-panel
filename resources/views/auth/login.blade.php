@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="flex justify-center">
-    <div class="w-4/12 bg-white p-6 rounded-lg">
+    <div class="w-4/12 bg-white p-6">
         @if (session('status'))
         <div class="bg-red-500 p-4 rounded-lg mb-6 text-white text-center">
             {{ session('status') }}
@@ -43,5 +42,4 @@
             <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">Login</button>
         </form>
     </div>
-</div>
 @endsection
