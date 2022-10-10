@@ -11,10 +11,20 @@
             </ul>
         </div>
     @endif
-    <img src="{{ asset('storage/' . $company->id . '.png') }}" alt="logo" width="100" height="100" class="border-2">
-        <h2>{{ $company->name }}</h2>
-        <p>Website: <a href="{{ $company->website }}">{{ $company->website }}</a></h2></p>
-        <h3>Contact email: <a href="mailto:{{ $company->email }}">{{ $company->email }}</a></h3>
+    <div class="flex">
+        <img src="{{ asset('storage/placeholder.png') }}" alt="logo" width="100" height="100" class="border-2">
+        <div class="flex flex-col m-2">
+            <h2 class="text-4xl">{{ $company->name }}</h2>
+            <div>
+                <a href="{{ $company->website }}"><i class="bi bi-globe2"></i></a>
+            <a href="mailto:{{ $company->email }}"><i class="bi bi-envelope"></i></a>
+            </div>
+
+        </div>
+
+    </div>
+
+
         <hr>
         <h3>Employees</h3>
         <div class="mx-auto">
