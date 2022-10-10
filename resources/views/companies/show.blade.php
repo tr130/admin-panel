@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="w-8/12 bg-white p-6">
+    <div class="bg-white w-full flex flex-col">
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -10,42 +10,54 @@
                 @endforeach
             </ul>
         </div>
-    @endif
-    <div class="flex">
-        <img src="{{ asset('storage/placeholder.png') }}" alt="logo" width="100" height="100" class="border-2">
-        <div class="flex flex-col m-2">
-            <h2 class="text-4xl">{{ $company->name }}</h2>
-            <div>
-                <a href="{{ $company->website }}"><i class="bi bi-globe2"></i></a>
-            <a href="mailto:{{ $company->email }}"><i class="bi bi-envelope"></i></a>
+        @endif
+        <div class="flex bg-green-100 w-100 p-4">
+            <img src="{{ asset('storage/placeholder.png') }}" alt="logo" width="100" height="100" class="border-2">
+            <div class="flex flex-col m-2">
+                <h2 class="text-4xl">{{ $company->name }}</h2>
+                <div>
+                    <a href="{{ $company->website }}"><i class="bi bi-globe2"></i></a>
+                    <a href="mailto:{{ $company->email }}"><i class="bi bi-envelope"></i></a>
+                </div>
             </div>
-
         </div>
-
-    </div>
-
-
-        <hr>
-        <h3>Employees</h3>
-        <div class="mx-auto">
-            <button class="bg-blue-500 text-white rounded-md p-2 text-base font-medium hover:bg-blue-600
-                focus:outline-none focus:ring-2 focus:ring-blue-300" id="add_emp_btn">
-                Add position
-            </button>
+        <div class="flex items-stretch flex-grow">
+            <div class="w-1/2 p-3 border-r-4">
+                <div class="flex">
+                    <h3 class="text-2xl">Employees</h3>
+                    <button class="bg-green-500 text-white rounded-md px-2 py-1 mx-2 text-base font-medium hover:bg-green-600
+                        focus:outline-none focus:ring-2 focus:ring-green-300" id="add_emp_btn">
+                        <i class="bi bi-person-plus-fill"></i> New
+                    </button>
+                </div>
+                <ul>
+                    @foreach ($jobs as $job)
+                    <li>
+                        <a href="{{ route('employees.show', $job->employee) }}"><i class="bi bi-person-fill text-green-500"></i> {{ $job->employee->last_name }},
+                            {{ $job->employee->first_name }}</a>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+            <div class="w-1/2 p-3">
+                <div class="flex">
+                    <h3 class="text-2xl">Payrolls</h3>
+                    <a class="bg-green-500 text-white rounded-md px-2 py-1 mx-2 text-base font-medium hover:bg-green-600
+                        focus:outline-none focus:ring-2 focus:ring-green-300" href="{{ route('payrolls.create', $company) }}"> Run
+                        Payroll <i class="bi bi-arrow-right-circle-fill"></i>
+                    </a>
+                </div>
+                <ul>
+                    @foreach ($payrolls as $payroll)
+                    <li>
+                        <a href=""><i class="bi bi-calendar2-week-fill text-green-500"></i> <strong>{{ $payroll->tax_year }}</strong> - Month
+                            {{ $payroll->month }}
+                        </a>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
-        <ul>
-            @foreach ($jobs as $job)
-            <li>
-                <a href="{{ route('employees.show', $job->employee) }}">{{ $job->employee->first_name }}
-                    {{ $job->employee->last_name }}</a>
-            </li>
-            @endforeach
-        </ul>
-    </div>
-    <div class="w-4/12 bg-white p-6">
-        <a class="bg-blue-500 text-white rounded-md p-2 text-base font-medium hover:bg-blue-600
-            focus:outline-none focus:ring-2 focus:ring-blue-300" href="{{ route('payrolls.create', $company) }}">Run
-            Payroll</a>
     </div>
 </div>
 <div class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden" id="add_emp_modal">

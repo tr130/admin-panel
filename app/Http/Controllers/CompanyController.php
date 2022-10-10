@@ -20,8 +20,8 @@ class CompanyController extends Controller
     public function show(Company $company)
     {
 
-        $jobs = $company->jobs()->with(['employee'])->paginate();
-        $payrolls = $company->payrolls()->paginate();
+        $jobs = $company->jobs()->with(['employee'])->paginate()->sortBy('employee.last_name');
+        $payrolls = $company->payrolls()->paginate()->sortBy('tax_year');
         return view('companies.show', [
             'company' => $company,
             'jobs' => $jobs,
