@@ -42,6 +42,7 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/jobs/{company}', [JobController::class, 'store'])->name('jobs.store');
     Route::get('/employees/index', [EmployeeController::class, 'index'])->name('employees');
     Route::post('/employees/store', [EmployeeController::class, 'store'])->name('employees.store');
+    Route::post('/employees/update', [EmployeeController::class, 'update'])->name('employees.update');
     Route::get('/employees/show/{employee}', [EmployeeController::class, 'show'])->name('employees.show');
     Route::get('/employees/search', function(Request $request) {
         if($request->input()) {

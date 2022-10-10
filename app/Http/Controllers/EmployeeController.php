@@ -56,4 +56,14 @@ class EmployeeController extends Controller
         ));
         return response()->json(['id' => $employee->id]);
     }
+
+    public function update(Request $request)
+    {
+        $splitParts = explode("/", $request->header('REFERER'));
+        if ($request['id'] != $splitParts[sizeof($splitParts)-1]) {
+            // return an error
+        }
+        $employee = Employee::findOrFail($request['id']);
+
+    }
 }
