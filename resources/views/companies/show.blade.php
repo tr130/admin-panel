@@ -50,7 +50,7 @@
                 <ul>
                     @foreach ($payrolls as $payroll)
                     <li>
-                        <a href=""><i class="bi bi-calendar2-week-fill text-green-500"></i> <strong>{{ $payroll->tax_year }}</strong> - Month
+                        <a href="{{ route('payrolls.show', $payroll->id) }}"><i class="bi bi-calendar2-week-fill text-green-500"></i> <strong>{{ $payroll->tax_year }}</strong> - Month
                             {{ $payroll->month }}
                         </a>
                     </li>

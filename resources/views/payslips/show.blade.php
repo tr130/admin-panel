@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="/css/app.css" rel="stylesheet">
-    <title>Document</title>
+    <title>Admin Panel | Payslip for {{ $payslip->jobYear->job->employee->first_name }} {{ $payslip->jobYear->job->employee->last_name }}</title>
 </head>
 <body>
     <div class="payslip">

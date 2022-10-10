@@ -5,11 +5,27 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Job;
 use App\Models\Company;
+use App\Models\Payroll;
 use App\Models\Payslip;
 use Illuminate\Http\Request;
 
 class PayrollController extends Controller
 {
+    public function show(Payroll $payroll)
+    {
+        $payslips = $payroll->payslips()->with(['jobYear.job.employee'])->paginate()->sortBy('jobYear.job.employee.last_name');
+        return view('payrolls.show', [
+            'payroll' => $payroll,
+            'payslips' => $payslips,
+        ]);
+    }
+
+    public function form(Request $request)
+    {
+        $payroll = Payroll::findOrFail($request['id']);
+        return redirect()->route('payrolls.show', $payroll);
+    }
+
     public function create(Company $company)
     {
         $jobs = $company->jobs;

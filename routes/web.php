@@ -33,6 +33,8 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
     Route::get('/companies', [CompanyController::class, 'index'])->name('companies');
     Route::get('/companies/{company}', [CompanyController::class, 'show'])->name('companies.show');
+    Route::post('/payrolls/form/', [PayrollController::class, 'form'])->name('payrolls.form');
+    Route::get('/payrolls/show/{payroll}', [PayrollController::class, 'show'])->name('payrolls.show');
     Route::get('/payrolls/{company}', [PayrollController::class, 'create'])->name('payrolls.create');
     Route::post('/payrolls/{company}', [PayrollController::class, 'store'])->name('payrolls.store');
     Route::post('/payslips/show/', [PayslipController::class, 'show'])->name('payslips.show');
