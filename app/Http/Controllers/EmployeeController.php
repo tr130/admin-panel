@@ -64,6 +64,14 @@ class EmployeeController extends Controller
             // return an error
             return redirect($request->header('REFERER'))->with('fail', 'Unable to update employee details. Please try again.');
         }
+        $request->validate([
+            'first_name' => 'required|max:100',
+            'last_name' => 'required|max:100',
+            'email' => 'email|max:250',
+            'phone' => 'max:50',
+            'date_of_birth' => 'required|date',
+            'ni_number' => 'required|regex:/[A-Z]{2}\d{6}[A-Z]/|unique:employees',
+        ]);
         $employee = Employee::findOrFail($request['id']);
         $employee->update($request->only(
             'first_name',

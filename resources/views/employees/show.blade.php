@@ -10,17 +10,18 @@
     <i id="dismissAlert" role="button" class="bi bi-x-lg"></i>
   </span>
 </div>
-
-
-        @endif
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
+@elseif ($errors->any())
+<div class="bg-red-100 text-red-700 px-4 py-3 relative" id="failAlert" role="alert">
+  <strong class="font-bold">Error: </strong>
+  <span class="block sm:inline"><ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
-        </ul>
-    </div>
+        </ul></span>
+  <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+    <i id="dismissAlert" role="button" class="bi bi-x-lg"></i>
+  </span>
+</div>
     @endif
     <div class="flex bg-green-100 w-100 p-4">
         <div class="flex flex-col m-2">
