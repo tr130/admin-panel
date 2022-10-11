@@ -2,6 +2,17 @@
 
 @section('content')
 <div class="bg-white w-full flex flex-col">
+            @if (Session::has('fail'))
+            <div class="bg-red-100 text-red-700 px-4 py-3 relative" id="failAlert" role="alert">
+  <strong class="font-bold">Error: </strong>
+  <span class="block sm:inline">{{Session::get('fail')}}</span>
+  <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+    <i id="dismissAlert" role="button" class="bi bi-x-lg"></i>
+  </span>
+</div>
+
+
+        @endif
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -147,5 +158,15 @@
             updateBtn.classList.add('hidden');
         }
     })
+
+    const dismissAlert = document.getElementById('dismissAlert');
+    const failAlert = document.getElementById('failAlert');
+
+    if (dismissAlert) {
+        dismissAlert.addEventListener('click', () => {
+            failAlert.classList.add('hidden');
+        })
+    }
+
 </script>
 @endsection

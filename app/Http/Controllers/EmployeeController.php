@@ -60,10 +60,23 @@ class EmployeeController extends Controller
     public function update(Request $request)
     {
         $splitParts = explode("/", $request->header('REFERER'));
-        if ($request['id'] != $splitParts[sizeof($splitParts)-1]) {
+        if ($request['id'] !== $splitParts[sizeof($splitParts)-1]) {
             // return an error
+            return redirect($request->header('REFERER'))->with('fail', 'Unable to update employee details. Please try again.');
         }
         $employee = Employee::findOrFail($request['id']);
-
+        $employee->update($request->only(
+            'first_name',
+            'last_name',
+            'email',
+            'phone',
+            'date_of_birth',
+            'ni_number',
+            'SL1',
+            'SL2',
+            'SL4',
+            'SLPG',
+        ));
+        return redirect($request->header('REFERER'));
     }
 }
