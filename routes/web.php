@@ -23,13 +23,11 @@ use App\Http\Controllers\EmployeeController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 
 Route::middleware(['auth'])->group(function() {
+    Route::get('/', [CompanyController::class, 'index'])->name('home');
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
     Route::get('/companies', [CompanyController::class, 'index'])->name('companies');
     Route::get('/companies/{company}', [CompanyController::class, 'show'])->name('companies.show');

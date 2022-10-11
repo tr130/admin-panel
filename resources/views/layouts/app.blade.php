@@ -11,7 +11,7 @@
     <link href="/css/app.css" rel="stylesheet">
     <title>Admin Panel | Business Management and PAYE System</title>
 </head>
-<body class="bg-gray-500">
+<body>
 
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 <div class="md:flex flex-col md:flex-row md:min-h-screen w-full">
