@@ -225,7 +225,6 @@
     }
 
     const pensionOptout = function (pension) {
-        console.log(pension.checked)
         if (pension.checked === false) {
             document.getElementById('pension_optout').classList = "";
         } else {
@@ -260,7 +259,6 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
 $(document).ready(function () {
-    console.log("{{ route('employees.search') }}");
     if (document.createElement("datalist").options) {
         $("#emp_search").on("input", function (e) {
             let val = $(this).val();
@@ -269,7 +267,6 @@ $(document).ready(function () {
                 q: val,
                 detail: false
             }, function (res) {
-                console.log(res);
                 let dataList = $("#emp_datalist");
                 dataList.empty();
                 if (res.data.length) {
@@ -288,24 +285,17 @@ $(document).ready(function () {
         $("#get_details").on("click", function (e) {
             let emp = $('#emp_search').val();
             let nino = emp.match(/[A-Z]{2}\d{6}[A-Z]/);
-            console.log(emp, nino);
             $.get("{{ route('employees.search') }}", {
                 q: nino[0],
                 detail: true
             }, function (res) {
-                console.log(res);
                 if (res.data) {
-                    console.log('res.data', res.data);
                     for (let property in res.data) {
-                        console.log(property);
                         if (res.data[property] === true) {
-                            console.log('1');
                             document.getElementById(property).checked = true;
                         } else if (res.data[property] === false) {
-                            console.log('2');
                             document.getElementById(property).checked = false;
                         } else {
-                            console.log('3');
                             document.getElementById(property).value = res.data[property];
                         }
                     }
@@ -315,9 +305,6 @@ $(document).ready(function () {
     }
     $("#employee_form").on("submit", function (e) {
             e.preventDefault();
-            console.log(e.target);
-            console.log(document.getElementById('new_employee').checked);
-            console.log(document.getElementById('existing_employee').checked);
             let empData;
             if (document.getElementById('new_employee').checked == true) {
                 empData = {
@@ -361,8 +348,6 @@ $(document).ready(function () {
                 if (jqXHR.status === 422) {
                     let errors = jqXHR.responseJSON.errors;
                     for (let error in errors) {
-                        console.log(error);
-                        console.log(errors[error][0]);
                         let errorMessage = document.createElement('div');
                         errorMessage.classList = ['text-red-500 mt-2 text-sm error-message'];
                         errorMessage.textContent = errors[error][0];
@@ -372,14 +357,6 @@ $(document).ready(function () {
                     }
                 }
             });
-            //  for(let input of e.target) {
-
-
-            //console.log(input)
-            // if (input.value) {
-            //     console.log(`${input.name}: ${input.value}`);
-            // }
-            //  };
         });
     })
 

@@ -29,7 +29,6 @@ class EmployeeController extends Controller
 
     public function search(Request $request)
     {
-        dd($request->input());
         if($request->input()) {
             $q = $request->input("q");
             if($request->input('detail') === "true") {
