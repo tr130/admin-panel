@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use App\Http\Resources\EmployeeResource;
 
 class EmployeeController extends Controller
 {
@@ -26,8 +27,18 @@ class EmployeeController extends Controller
         ]);
     }
 
-    public function search(Request $request) {
-        dd($request);
+    public function search(Request $request)
+    {
+        dd($request->input());
+        if($request->input()) {
+            $q = $request->input("q");
+            if($request->input('detail') === "true") {
+                return new EmployeeResource(Employee::firstWhere('ni_number', $q));
+            }
+            return EmployeeResource::collection(Employee::where('first_name', 'ilike', "%{$q}%")->orWhere('last_name', 'ilike', "%{$q}%")->get());
+        } else {
+            return EmployeeResource::collection(Employee::all());
+        }
     }
 
     public function store(Request $request) {

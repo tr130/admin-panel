@@ -42,16 +42,6 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/employees/store', [EmployeeController::class, 'store'])->name('employees.store');
     Route::post('/employees/update', [EmployeeController::class, 'update'])->name('employees.update');
     Route::get('/employees/show/{employee}', [EmployeeController::class, 'show'])->name('employees.show');
-    Route::get('/employees/search', function(Request $request) {
-        if($request->input()) {
-            $q = $request->input("q");
-            if($request->input('detail') === "true") {
-                return new EmployeeResource(Employee::firstWhere('ni_number', $q));
-            }
-            return EmployeeResource::collection(Employee::where('first_name', 'ilike', "%{$q}%")->orWhere('last_name', 'ilike', "%{$q}%")->get());
-        } else {
-            return EmployeeResource::collection(Employee::all());
-        }
-    })->name('employees.search');
+    Route::get('/employees/search', [EmployeeController::class, 'search'])->name('employees.search');
 });
 
