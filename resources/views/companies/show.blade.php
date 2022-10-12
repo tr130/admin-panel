@@ -286,17 +286,24 @@ $(document).ready(function () {
         $("#get_details").on("click", function (e) {
             let emp = $('#emp_search').val();
             let nino = emp.match(/[A-Z]{2}\d{6}[A-Z]/);
+            console.log(emp, nino);
             $.get("{{ route('employees.search') }}", {
                 q: nino[0],
                 detail: true
             }, function (res) {
+                console.log('res');
                 if (res.data) {
+                    console.log('res.data', res.data);
                     for (let property in res.data) {
+                        console.log(property);
                         if (res.data[property] === true) {
+                            console.log('1');
                             document.getElementById(property).checked = true;
                         } else if (res.data[property] === false) {
+                            console.log('2');
                             document.getElementById(property).checked = false;
                         } else {
+                            console.log('3');
                             document.getElementById(property).value = res.data[property];
                         }
                     }
