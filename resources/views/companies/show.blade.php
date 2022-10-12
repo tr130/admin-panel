@@ -268,6 +268,7 @@ $(document).ready(function () {
                 q: val,
                 detail: false
             }, function (res) {
+                console.log(res);
                 let dataList = $("#emp_datalist");
                 dataList.empty();
                 if (res.data.length) {
@@ -291,7 +292,7 @@ $(document).ready(function () {
                 q: nino[0],
                 detail: true
             }, function (res) {
-                console.log('res');
+                console.log(res);
                 if (res.data) {
                     console.log('res.data', res.data);
                     for (let property in res.data) {
