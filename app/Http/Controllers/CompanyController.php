@@ -21,7 +21,7 @@ class CompanyController extends Controller
     {
 
         $jobs = $company->jobs()->with(['employee'])->paginate()->sortBy('employee.last_name');
-        $payrolls = $company->payrolls()->paginate()->sortBy('tax_year')->sortBy('month');
+        $payrolls = $company->payrolls()->orderBy('tax_year')->orderBy('month')->get();
         return view('companies.show', [
             'company' => $company,
             'jobs' => $jobs,
