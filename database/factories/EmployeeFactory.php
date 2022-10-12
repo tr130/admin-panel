@@ -24,7 +24,7 @@ class EmployeeFactory extends Factory
         return [
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
-            'email' => $this->faker->email(),
+            'email' => $this->faker->safeEmail(),
             'phone' => $this->faker->phoneNumber(),
             'date_of_birth' => $this->faker->dateTimeBetween('1930-01-01', '2002-01-01'),
             'ni_number' => $this->faker->nino(),

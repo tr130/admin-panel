@@ -16,7 +16,7 @@ class CompanySeeder extends Seeder
      */
     public function run()
     {
-        for($i = 0; $i < 10; $i++) {
+        for($i = 0; $i < 5; $i++) {
             $company = Company::factory()->create();
 
             for($j = 0; $j < 10; $j++) {
@@ -24,6 +24,8 @@ class CompanySeeder extends Seeder
                 $job = Job::factory()->for($employee)->for($company)->create();
                 $job->createYears();
             }
+
+
         }
             // Company::factory()
             // ->count(10)
