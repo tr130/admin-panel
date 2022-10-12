@@ -260,6 +260,7 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
 $(document).ready(function () {
+    console.log("{{ route('employees.search') }}");
     if (document.createElement("datalist").options) {
         $("#emp_search").on("input", function (e) {
             let val = $(this).val();
