@@ -80,9 +80,15 @@ class EmployeeController extends Controller
             'email' => 'email|max:250',
             'phone' => 'max:50',
             'date_of_birth' => 'required|date',
-            'ni_number' => 'required|regex:/[A-Z]{2}\d{6}[A-Z]/|unique:employees',
+            'ni_number' => 'required|regex:/[A-Z]{2}\d{6}[A-Z]/',
         ]);
         $employee = Employee::findOrFail($request['id']);
+        //if ni number has changed, validate it for uniqueness
+        if ($request->ni_number !== $employee->ni_number) {
+            $request->validate([
+                'ni_number' => 'unique:employees',
+            ]);
+        }
         $employee->update($request->only(
             'first_name',
             'last_name',
