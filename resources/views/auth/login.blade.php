@@ -18,7 +18,7 @@
     </div>
     <div class="flex items-stretch flex-grow">
         <div class="w-full p-3">
-            <div class="w-4/12 bg-white p-6 m-auto">
+            <div class="sm:w-8/12 md:w-6/12 lg:w-4/12 bg-white p-6 m-auto">
                 @if (session('status'))
                 <div class="bg-red-500 p-4 rounded-lg mb-6 text-white text-center">
                     {{ session('status') }}
