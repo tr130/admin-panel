@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="flex items-stretch flex-grow">
-        <div class="w-full p-3">
+        <div class="w-full p-6">
             <ul>
                 @foreach ($companies as $company)
                 <li class="my-1">

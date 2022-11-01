@@ -57,7 +57,7 @@
                     <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-3 rounded font-medium w-full">Login</button>
                 </form>
             </div>
-            <div class="w-4/12 bg-white p-6 m-auto border-t-4">
+            <div class="sm:w-8/12 md:w-6/12 lg:w-4/12 bg-white p-6 m-auto border-t-4">
                 <form action="{{ route('login') }}" method="post">
                     @csrf
                     <input type="hidden" name="email" id="email" value="trial@payroll.tr130.co.uk">

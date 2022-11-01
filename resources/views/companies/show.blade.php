@@ -25,8 +25,8 @@
                 </div>
             </div>
         </div>
-        <div class="flex items-stretch flex-grow">
-            <div class="w-1/2 p-3 border-r-4">
+        <div class="flex flex-col sm:flex-row items-stretch flex-grow">
+            <div class="sm:w-full md:w-1/2 p-6 md:p-3 border-b-4 sm:border-r-4">
                 <div class="flex">
                     <h3 class="text-2xl">Employees</h3>
                     <button class="bg-green-500 text-white rounded-md px-2 py-1 mx-2 text-base font-medium hover:bg-green-600
@@ -43,7 +43,7 @@
                     @endforeach
                 </ul>
             </div>
-            <div class="w-1/2 p-3">
+            <div class="sm:w-full md:w-1/2 p-6 md:p-3 border-b-4">
                 <div class="flex">
                     <h3 class="text-2xl">Payrolls</h3>
                     <a class="bg-green-500 text-white rounded-md px-2 py-1 mx-2 text-base font-medium hover:bg-green-600

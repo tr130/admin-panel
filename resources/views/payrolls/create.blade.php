@@ -13,7 +13,7 @@
                 @csrf
                 <div class="mb-2">
                     <label for="tax_year">Year: </label>
-                    <input type="number" name="tax_year" id="tax_year" min="2011" max="2021" value="2021"
+                    <input type="number" name="tax_year" id="tax_year" min="2011" max="2022" value="2022"
                     class="bg-gray-100 border-2 p-1 rounded-lg emp_details @error('tax_year') border-red-500 @enderror">
                     @error('tax_year')
                         <div class="text-red-500 mt-2 text-sm">

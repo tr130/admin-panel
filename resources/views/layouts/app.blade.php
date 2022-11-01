@@ -53,7 +53,7 @@
             </div>
         </div>
         @endauth
-        <div class="flex flex-grow fixed bottom-0 mb-4">
+    <div class="flex flex-grow md:fixed md:bottom-0 self-end mb-4">
                 <ul class="flex space-between items-center">
             @auth
                 <li>
